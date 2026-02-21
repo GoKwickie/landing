@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
                         <div className="flex flex-wrap items-center gap-5 pt-2">
                             <a
                                 href="#waitlist"
-                                className="inline-flex items-center justify-center font-medium px-12 py-3.5 text-base text-white rounded-full transition-opacity hover:opacity-95 min-w-[480px]"
+                                className="inline-flex items-center justify-center font-medium px-6 py-3.5 sm:px-12 text-base text-white rounded-full transition-opacity hover:opacity-95 w-full sm:w-auto sm:min-w-[260px]"
                                 style={{ backgroundColor: "#38CB4E" }}
                             >
                                 Join waitlist

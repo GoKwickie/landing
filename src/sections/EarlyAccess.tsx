@@ -26,16 +26,23 @@ const EarlyAccess: React.FC = () => {
                         Receive exclusive launch updates and notifications.
                     </p>
 
-                    <form className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto mb-8">
+                    <form className="flex flex-col gap-4 max-w-lg mx-auto mb-8">
                         <input
                             type="email"
                             placeholder="Email address"
-                            className="flex-[2] min-w-0 rounded-xl border border-gray-300 px-5 py-3.5 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500/30 focus:border-green-500"
+                            required
+                            className="w-full rounded-xl border border-gray-300 px-5 py-3.5 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500/30 focus:border-green-500"
+                            style={{ borderColor: "#E5E7EB" }}
+                        />
+                        <input
+                            type="tel"
+                            placeholder="Phone number"
+                            className="w-full rounded-xl border border-gray-300 px-5 py-3.5 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500/30 focus:border-green-500"
                             style={{ borderColor: "#E5E7EB" }}
                         />
                         <button
                             type="submit"
-                            className="flex-1 sm:flex-none px-6 py-3.5 rounded-xl font-medium text-white whitespace-nowrap transition-opacity hover:opacity-95"
+                            className="px-6 py-3.5 rounded-xl font-medium text-white whitespace-nowrap transition-opacity hover:opacity-95"
                             style={{ backgroundColor: "#4CAF50" }}
                         >
                             Get Notified
