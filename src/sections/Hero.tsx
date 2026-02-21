@@ -27,19 +27,13 @@ const Hero: React.FC = () => {
                             moving.
                         </p>
                         <div className="flex flex-wrap items-center gap-5 pt-2">
-                            <button
-                                type="button"
-                                className="inline-flex items-center justify-center font-medium px-8 py-3.5 text-base text-white rounded-full transition-opacity hover:opacity-95"
+                            <a
+                                href="#waitlist"
+                                className="inline-flex items-center justify-center font-medium px-12 py-3.5 text-base text-white rounded-full transition-opacity hover:opacity-95 min-w-[480px]"
                                 style={{ backgroundColor: "#38CB4E" }}
                             >
-                                Download App
-                            </button>
-                            <button
-                                type="button"
-                                className="inline-flex items-center justify-center font-medium px-8 py-3.5 text-base text-black bg-transparent border border-gray-400 rounded-full hover:bg-gray-50 transition-colors"
-                            >
-                                Book Ride
-                            </button>
+                                Join waitlist
+                            </a>
                         </div>
                     </div>
 

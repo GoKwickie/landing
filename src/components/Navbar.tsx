@@ -24,11 +24,11 @@ const Navbar: React.FC = () => {
                     />
                 </a>
 
-                <div className="hidden md:flex items-center gap-8 ml-auto">
+                <div className="flex items-center gap-8 ml-auto">
                     {/* Language selector */}
                     <button
                         type="button"
-                        className="flex items-center gap-1.5 text-sm font-medium hover:opacity-80 transition-opacity"
+                        className="hidden md:flex items-center gap-1.5 text-sm font-medium hover:opacity-80 transition-opacity"
                         style={{ color: navGray }}
                     >
                         <Globe className="w-4 h-4" aria-hidden />
@@ -37,36 +37,18 @@ const Navbar: React.FC = () => {
                     </button>
                     <a
                         href="#help"
-                        className="text-sm font-medium hover:opacity-80 transition-opacity"
+                        className="hidden md:block text-sm font-medium hover:opacity-80 transition-opacity"
                         style={{ color: navGray }}
                     >
                         Help
                     </a>
                     <a
-                        href="#login"
-                        className="text-sm font-medium hover:opacity-80 transition-opacity"
-                        style={{ color: navGray }}
+                        href="#waitlist"
+                        className="px-5 py-2.5 md:px-6 md:py-2.5 text-sm font-semibold text-white rounded-full hover:opacity-95 transition-opacity"
+                        style={{ backgroundColor: navGreen }}
                     >
-                        Login
+                        Join waitlist
                     </a>
-                    <button
-                        type="button"
-                        className="ml-2 px-6 py-2.5 text-sm font-semibold text-white rounded-full hover:opacity-95 transition-opacity"
-                        style={{ backgroundColor: navGreen }}
-                    >
-                        Register
-                    </button>
-                </div>
-
-                {/* Mobile: show only Register */}
-                <div className="flex md:hidden items-center gap-3">
-                    <button
-                        type="button"
-                        className="px-5 py-2.5 text-sm font-semibold text-white rounded-full"
-                        style={{ backgroundColor: navGreen }}
-                    >
-                        Register
-                    </button>
                 </div>
             </div>
         </nav>

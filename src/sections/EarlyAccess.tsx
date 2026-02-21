@@ -2,7 +2,7 @@ import React from "react";
 
 const EarlyAccess: React.FC = () => {
     return (
-        <section className="bg-white min-h-[50vh]">
+        <section id="waitlist" className="bg-white min-h-[50vh]">
             <div className="py-16 md:py-20 px-4 md:px-6">
                 {/* Top heading - centered, above card */}
                 <h2 className="text-3xl md:text-4xl font-bold text-black text-center mb-10 md:mb-12">
