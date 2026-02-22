@@ -13,18 +13,21 @@ const EarlyAccess: React.FC = () => {
     setError(null);
     setLoading(true);
 
-    const { error: err } = await supabase.from("waitlist").insert({
-      email: email.trim(),
-      phone: phone.trim() || null,
-    });
+    const payload = { email: email.trim(), phone: phone.trim() || null };
+    console.log("[Waitlist] Submitting:", payload);
+
+    const { data, error: err } = await supabase.from("waitlist").insert(payload).select();
 
     setLoading(false);
 
     if (err) {
+      console.error("[Waitlist] Supabase error:", err);
+      console.error("[Waitlist] Error details:", { message: err.message, code: err.code, details: err.details });
       setError(err.message);
       return;
     }
 
+    console.log("[Waitlist] Success:", data);
     setSuccess(true);
     setEmail("");
     setPhone("");
