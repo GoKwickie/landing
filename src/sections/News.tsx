@@ -40,7 +40,7 @@ const formatDate = (iso: string) =>
 
 const News: React.FC = () => {
     return (
-        <section id="news" className="bg-white pb-16 md:pb-24">
+        <section id="news" className="bg-white py-20 md:py-28">
             <div className="container">
                 <SectionHeading
                     eyebrow="Latest news"
@@ -48,14 +48,14 @@ const News: React.FC = () => {
                 />
 
                 <div className="mt-10 grid gap-8 lg:grid-cols-3 lg:gap-10">
-                    <article className="overflow-hidden rounded-2xl bg-white ring-1 ring-gray-100 shadow-card lg:col-span-2">
+                    <article data-reveal className="group overflow-hidden rounded-3xl bg-cream lg:col-span-2">
                         <div className="aspect-[16/9] overflow-hidden bg-gray-100">
                             <img
                                 src={mainArticle.image}
                                 alt=""
                                 loading="lazy"
                                 decoding="async"
-                                className="h-full w-full object-cover"
+                                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                             />
                         </div>
                         <div className="p-6 md:p-8">
@@ -65,7 +65,7 @@ const News: React.FC = () => {
                             >
                                 {formatDate(mainArticle.date)}
                             </time>
-                            <h3 className="mt-2 text-xl font-bold leading-snug text-ink md:text-2xl">
+                            <h3 className="mt-2 text-2xl font-bold leading-snug text-ink md:text-3xl">
                                 {mainArticle.title}
                             </h3>
                             <p className="mt-3 leading-relaxed text-ink-muted">
@@ -74,13 +74,13 @@ const News: React.FC = () => {
                         </div>
                     </article>
 
-                    <div className="flex flex-col divide-y divide-gray-100">
+                    <div data-reveal style={{ "--d": "120ms" } as React.CSSProperties} className="flex flex-col divide-y divide-ink/10">
                         {sideArticles.map((item) => (
                             <article
                                 key={item.date}
                                 className="flex gap-4 py-5 first:pt-0 last:pb-0"
                             >
-                                <div className="h-24 w-24 shrink-0 overflow-hidden rounded-xl bg-gray-100 md:h-28 md:w-28">
+                                <div className="h-24 w-24 shrink-0 overflow-hidden rounded-2xl bg-gray-100 md:h-28 md:w-28">
                                     <img
                                         src={item.image}
                                         alt=""
@@ -96,7 +96,7 @@ const News: React.FC = () => {
                                     >
                                         {formatDate(item.date)}
                                     </time>
-                                    <h4 className="mt-1 text-base font-semibold leading-snug text-ink">
+                                    <h4 className="mt-1 text-lg font-semibold leading-snug text-ink">
                                         {item.title}
                                     </h4>
                                 </div>

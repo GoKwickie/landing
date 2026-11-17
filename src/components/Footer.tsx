@@ -66,7 +66,7 @@ const socialIcons = [
 
 const Footer: React.FC = () => {
     return (
-        <footer className="bg-[#0B0D0C] text-white">
+        <footer className="relative overflow-hidden bg-ink text-white">
             <div className="container py-14 md:py-20">
                 <div className="flex flex-col gap-6 border-b border-white/10 pb-10 md:flex-row md:items-center md:justify-between">
                     <div>
@@ -90,7 +90,7 @@ const Footer: React.FC = () => {
                                 key={label}
                                 href="#"
                                 aria-label={label}
-                                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-brand-600"
+                                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-brand-600 hover:text-white"
                             >
                                 <Icon className="h-[18px] w-[18px]" aria-hidden />
                             </a>
@@ -124,6 +124,13 @@ const Footer: React.FC = () => {
                     © {new Date().getFullYear()} goKwickie. All rights reserved.
                 </div>
             </div>
+            {/* Oversized wordmark bleeding off the bottom edge */}
+            <p
+                aria-hidden
+                className="pointer-events-none -mb-[0.22em] select-none text-center font-display text-[24vw] font-extrabold italic leading-none tracking-[-0.05em] text-white/[0.04]"
+            >
+                gokwickie
+            </p>
         </footer>
     );
 };

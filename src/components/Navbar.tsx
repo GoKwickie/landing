@@ -5,12 +5,13 @@ import logo from "../assets/logo.png";
 const links = [
     { label: "Services", href: "#services" },
     { label: "How it works", href: "#how-it-works" },
+    { label: "Earn", href: "#earn" },
     { label: "News", href: "#news" },
 ];
 
 const Navbar: React.FC = () => {
     return (
-        <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/75">
+        <header className="sticky top-0 z-50 border-b border-ink/5 bg-cream/90 backdrop-blur supports-[backdrop-filter]:bg-cream/75">
             <nav
                 aria-label="Main"
                 className="container flex h-16 items-center justify-between gap-6"

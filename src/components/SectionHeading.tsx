@@ -2,7 +2,7 @@ import React from "react";
 
 interface SectionHeadingProps {
     eyebrow?: string;
-    title: string;
+    title: React.ReactNode;
     subtitle?: string;
     align?: "left" | "center";
     /** Use on green or dark backgrounds. */
@@ -22,27 +22,22 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
     const centered = align === "center";
     return (
         <div
+            data-reveal
             className={`${centered ? "mx-auto text-center" : ""} max-w-2xl ${className}`}
         >
             {eyebrow && (
-                <span
-                    className={
-                        inverted
-                            ? "inline-flex items-center rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white"
-                            : "eyebrow"
-                    }
-                >
+                <span className={`eyebrow ${inverted ? "!text-white/90" : ""}`}>
                     {eyebrow}
                 </span>
             )}
             <h2
-                className={`${eyebrow ? "mt-4" : ""} text-3xl font-bold tracking-tight md:text-4xl ${inverted ? "text-white" : "text-ink"}`}
+                className={`${eyebrow ? "mt-4" : ""} text-4xl font-extrabold leading-[1.02] md:text-5xl ${inverted ? "text-white" : "text-ink"}`}
             >
                 {title}
             </h2>
             {subtitle && (
                 <p
-                    className={`mt-3 text-base leading-relaxed md:text-lg ${inverted ? "text-white/85" : "text-ink-muted"}`}
+                    className={`mt-4 text-lg leading-relaxed ${inverted ? "text-white/85" : "text-ink-muted"}`}
                 >
                     {subtitle}
                 </p>
