@@ -2,56 +2,61 @@ import React from "react";
 import { Globe, ChevronDown } from "lucide-react";
 import logo from "../assets/logo.png";
 
-const navGray = "#4A4A4A";
-const navGreen = "#4CAF50";
+const links = [
+    { label: "Services", href: "#services" },
+    { label: "How it works", href: "#how-it-works" },
+    { label: "News", href: "#news" },
+];
 
 const Navbar: React.FC = () => {
     return (
-        <nav
-            className="sticky top-0 left-0 right-0 z-50 bg-white border-b border-gray-100"
-            style={{ backgroundColor: "#FFFFFF" }}
-        >
-            <div className="container mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
-                {/* Logo: go + (·· K in green) + wickie */}
-                <a
-                    href="#"
-                    className="flex items-center gap-0.5 font-bold text-xl tracking-tight"
-                >
+        <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/75">
+            <nav
+                aria-label="Main"
+                className="container flex h-16 items-center justify-between gap-6"
+            >
+                <a href="#top" className="shrink-0" aria-label="goKwickie home">
                     <img
                         src={logo}
                         alt="goKwickie"
-                        className="h-8 w-auto block"
+                        width={196}
+                        height={32}
+                        className="block h-7 w-auto md:h-8"
                     />
                 </a>
 
-                <div className="flex items-center gap-8 ml-auto">
-                    {/* Language selector */}
+                <ul className="hidden items-center gap-8 md:flex">
+                    {links.map((link) => (
+                        <li key={link.href}>
+                            <a
+                                href={link.href}
+                                className="text-sm font-medium text-ink-muted transition-colors hover:text-ink"
+                            >
+                                {link.label}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+
+                <div className="flex items-center gap-6">
                     <button
                         type="button"
-                        className="hidden md:flex items-center gap-1.5 text-sm font-medium hover:opacity-80 transition-opacity"
-                        style={{ color: navGray }}
+                        className="hidden items-center gap-1.5 text-sm font-medium text-ink-muted transition-colors hover:text-ink lg:flex"
+                        aria-label="Language: English"
                     >
-                        <Globe className="w-4 h-4" aria-hidden />
+                        <Globe className="h-4 w-4" aria-hidden />
                         <span>EN</span>
-                        <ChevronDown className="w-4 h-4" aria-hidden />
+                        <ChevronDown className="h-4 w-4" aria-hidden />
                     </button>
                     <a
-                        href="#help"
-                        className="hidden md:block text-sm font-medium hover:opacity-80 transition-opacity"
-                        style={{ color: navGray }}
-                    >
-                        Help
-                    </a>
-                    <a
                         href="#waitlist"
-                        className="px-5 py-2.5 md:px-6 md:py-2.5 text-sm font-semibold text-white rounded-full hover:opacity-95 transition-opacity"
-                        style={{ backgroundColor: navGreen }}
+                        className="btn-primary px-5 py-2.5 text-sm"
                     >
                         Join waitlist
                     </a>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </header>
     );
 };
 

@@ -1,100 +1,88 @@
 import React from "react";
-import driverPov from "../assets/driver-looking-at-mirror.jpg";
+import SectionHeading from "../components/SectionHeading";
 import mapPhone from "../assets/map-on-phone.png";
 import riderHoldingMap from "../assets/rider-holding--map.jpg";
 import receiveImg from "../assets/woman-red-cap-shirt-giving-packages.jpg";
 import patternSvg from "../assets/pattern.svg";
 
 const steps = [
-    { title: "Book", image: mapPhone },
-    { title: "Track", image: riderHoldingMap },
-    { title: "Receive", image: receiveImg },
+    {
+        title: "Book",
+        description:
+            "Pick a ride, a meal or a delivery and confirm in a few taps.",
+        image: mapPhone,
+        alt: "Booking screen with a map on a phone",
+        imageClass: "object-cover object-top bg-brand-50",
+    },
+    {
+        title: "Track",
+        description:
+            "Follow your rider live on the map, from pickup to your door.",
+        image: riderHoldingMap,
+        alt: "Rider checking the live map on a phone",
+        imageClass: "object-cover object-center",
+    },
+    {
+        title: "Receive",
+        description:
+            "Arrive, eat up or collect your package. Simple as that.",
+        image: receiveImg,
+        alt: "Courier handing over packages from a car",
+        imageClass: "object-cover object-[70%_center]",
+    },
 ];
 
 const HowItWorks: React.FC = () => {
     return (
         <section
-            className="relative py-16 md:py-24 overflow-hidden"
+            id="how-it-works"
+            className="relative overflow-hidden bg-brand-600 py-16 md:py-24"
             style={{
-                backgroundColor: "#4CAF50",
                 backgroundImage: `url(${patternSvg})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
             }}
         >
-            <div className="relative z-10 px-6 md:px-10 lg:px-12 max-w-6xl mx-auto">
-                {/* Top: large white rounded card with driver POV image */}
-                <div className="mb-10 md:mb-14 -mx-2 md:-mx-4 lg:-mx-8">
-                    <div className="bg-white rounded-t-3xl rounded-b-xl overflow-visible shadow-lg max-w-5xl mx-auto">
-                        <div className="aspect-[2.2/1] md:aspect-[2.5/1] relative overflow-visible flex items-center justify-center">
-                            <img
-                                src={driverPov}
-                                alt="Driver perspective"
-                                className="absolute inset-0 w-full h-full object-cover object-center scale-200 origin-center"
-                            />
-                        </div>
-                    </div>
-                </div>
+            <div className="container">
+                <SectionHeading
+                    inverted
+                    align="center"
+                    eyebrow="How it works"
+                    title="Three steps. That's it."
+                    subtitle="Whether you're going somewhere or sending something, it works the same way."
+                />
 
-                {/* Section title */}
-                <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-10 md:mb-12">
-                    How It Works
-                </h2>
-
-                {/* Step cards: Book (label + image) | Track (image as bg), then Receive (image as bg) full width */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 max-w-5xl mx-auto">
-                    {/* Book: label left, image right */}
-                    <div className="bg-white rounded-2xl p-6 md:p-8 flex flex-row items-end gap-6 shadow-md min-h-[220px]">
-                        <h3 className="text-lg md:text-xl font-medium text-black shrink-0 pl-1">
-                            {steps[0].title}
-                        </h3>
-                        <div className="relative flex-1 w-full min-h-[200px] overflow-hidden rounded-xl flex-shrink-0">
-                            <img
-                                src={steps[0].image}
-                                alt={steps[0].title}
-                                className="absolute inset-0 w-full h-full object-cover object-right"
-                            />
-                            <div
-                                className="absolute inset-0 w-2/5 left-0 bg-gradient-to-r from-white to-transparent pointer-events-none"
-                                aria-hidden
-                            />
-                        </div>
-                    </div>
-
-                    {/* Track: image as full card background */}
-                    <div
-                        className="relative rounded-2xl overflow-hidden shadow-md min-h-[220px] bg-cover bg-center"
-                        style={{ backgroundImage: `url(${riderHoldingMap})` }}
-                    >
-                        <div
-                            className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/50 to-transparent pointer-events-none"
-                            aria-hidden
-                        />
-                        <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8 z-10">
-                            <h3 className="text-lg md:text-xl font-medium text-black">
-                                {steps[1].title}
-                            </h3>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Receive: image as full card background */}
-                <div className="mt-8 md:mt-10 max-w-5xl mx-auto">
-                    <div
-                        className="relative rounded-2xl overflow-hidden shadow-md min-h-[400px] bg-cover"
-                        style={{ backgroundImage: `url(${receiveImg})` }}
-                    >
-                        <div
-                            className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/60 to-transparent pointer-events-none"
-                            aria-hidden
-                        />
-                        <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8 z-10">
-                            <h3 className="text-lg md:text-xl font-medium text-black">
-                                {steps[2].title}
-                            </h3>
-                        </div>
-                    </div>
-                </div>
+                <ol className="mt-12 grid gap-6 md:grid-cols-3">
+                    {steps.map((step, i) => (
+                        <li
+                            key={step.title}
+                            className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-card"
+                        >
+                            <div className="relative aspect-[4/3] overflow-hidden">
+                                <img
+                                    src={step.image}
+                                    alt={step.alt}
+                                    loading="lazy"
+                                    decoding="async"
+                                    className={`absolute inset-0 h-full w-full ${step.imageClass}`}
+                                />
+                            </div>
+                            <div className="flex flex-1 flex-col p-6">
+                                <div className="flex items-center gap-3">
+                                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-600 text-sm font-bold text-white">
+                                        {i + 1}
+                                    </span>
+                                    <h3 className="text-xl font-bold text-ink">
+                                        {step.title}
+                                    </h3>
+                                </div>
+                                <p className="mt-3 leading-relaxed text-ink-muted">
+                                    {step.description}
+                                </p>
+                            </div>
+                        </li>
+                    ))}
+                </ol>
             </div>
         </section>
     );

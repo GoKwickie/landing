@@ -1,68 +1,66 @@
-import React from 'react';
+import React from "react";
+import { Car, UtensilsCrossed, Package, type LucideIcon } from "lucide-react";
 
-const cardGray = '#F7F7F7';
-const cardGreen = '#E6F7E6';
-const titleColor = '#1E1E1E';
-const descColor = '#4A4A4A';
-const buttonBorder = '#E0E0E0';
+interface Feature {
+    title: string;
+    description: string;
+    buttonLabel: string;
+    Icon: LucideIcon;
+    highlight?: boolean;
+}
 
-const features = [
-  {
-    title: 'Book a Ride',
-    description: 'Get moving in minutes. No stress, no wait. Just tap and go.',
-    buttonLabel: 'Catch Ride',
-    background: cardGray,
-  },
-  {
-    title: 'Order Chow',
-    description: 'Your favorite meals, hot and ready: just how you like it.',
-    buttonLabel: 'Find Meals',
-    background: cardGreen,
-  },
-  {
-    title: 'Send a Package',
-    description: "Got something to drop? We'll get it there Kwick: Safe, simple, sorted.",
-    buttonLabel: 'Send Now',
-    background: cardGray,
-  },
+const features: Feature[] = [
+    {
+        title: "Book a Ride",
+        description: "Get moving in minutes. No stress, no wait. Just tap and go.",
+        buttonLabel: "Catch Ride",
+        Icon: Car,
+    },
+    {
+        title: "Order Chow",
+        description: "Your favourite meals, hot and ready, just how you like them.",
+        buttonLabel: "Find Meals",
+        Icon: UtensilsCrossed,
+        highlight: true,
+    },
+    {
+        title: "Send a Package",
+        description:
+            "Got something to drop? We'll get it there Kwick. Safe, simple, sorted.",
+        buttonLabel: "Send Now",
+        Icon: Package,
+    },
 ];
 
 const Features: React.FC = () => {
-  return (
-    <section className="py-16 md:py-20 bg-white">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-          {features.map((item, i) => (
-            <div
-              key={i}
-              className="rounded-2xl p-6 md:p-8 text-left"
-              style={{ backgroundColor: item.background }}
-            >
-              <h3
-                className="text-xl font-bold mb-3"
-                style={{ color: titleColor }}
-              >
-                {item.title}
-              </h3>
-              <p
-                className="text-base font-normal leading-normal mb-6"
-                style={{ color: descColor }}
-              >
-                {item.description}
-              </p>
-              <button
-                type="button"
-                className="w-full sm:w-auto px-6 py-3 rounded-full font-normal text-base bg-white border transition-colors hover:bg-gray-50"
-                style={{ color: titleColor, borderColor: buttonBorder, borderWidth: 1 }}
-              >
-                {item.buttonLabel}
-              </button>
+    return (
+        <section aria-label="What you can do" className="bg-white pb-16 md:pb-24">
+            <div className="container grid gap-5 md:grid-cols-3 lg:gap-6">
+                {features.map(({ title, description, buttonLabel, Icon, highlight }) => (
+                    <div
+                        key={title}
+                        className={`flex flex-col rounded-2xl p-6 md:p-8 ${highlight ? "bg-brand-50 ring-1 ring-brand-100" : "bg-gray-50 ring-1 ring-gray-100"}`}
+                    >
+                        <span
+                            className={`flex h-11 w-11 items-center justify-center rounded-xl ${highlight ? "bg-brand-600 text-white" : "bg-white text-brand-700 ring-1 ring-gray-200"}`}
+                        >
+                            <Icon className="h-5 w-5" aria-hidden />
+                        </span>
+                        <h3 className="mt-5 text-xl font-bold text-ink">{title}</h3>
+                        <p className="mt-2 leading-relaxed text-ink-muted">
+                            {description}
+                        </p>
+                        <a
+                            href="#waitlist"
+                            className="btn-secondary mt-6 self-start px-5 py-2.5 text-sm"
+                        >
+                            {buttonLabel}
+                        </a>
+                    </div>
+                ))}
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+        </section>
+    );
 };
 
 export default Features;

@@ -11,7 +11,7 @@ const footerColumns = [
             "Food Delivery",
             "Parcels",
             "Supplies",
-            "Why gokwickie",
+            "Why goKwickie",
         ],
     },
     {
@@ -28,13 +28,12 @@ const footerColumns = [
     },
     {
         heading: "Safety",
-        links: ["Safety tab", "Rider Safety", "Driver Safety", "Bike Safety"],
+        links: ["Safety centre", "Rider Safety", "Driver Safety", "Bike Safety"],
     },
     {
         heading: "Earn",
         links: [
             "goKwickie Riders",
-            "Why gokwickie",
             "Food Merchants",
             "goKwickie Couriers",
         ],
@@ -67,74 +66,62 @@ const socialIcons = [
 
 const Footer: React.FC = () => {
     return (
-        <footer className="bg-black text-white">
-            <div className="container mx-auto px-4 md:px-6 lg:px-8 py-14 md:py-18 max-w-7xl">
-                {/* Top section: logo (left) + seven columns */}
-                <div className="flex flex-col gap-12 lg:gap-10 pb-16">
-                    {/* Logo - top left */}
-                    <div className="flex-shrink-0">
-                        <a href="#" className="flex items-center gap-1.5">
+        <footer className="bg-[#0B0D0C] text-white">
+            <div className="container py-14 md:py-20">
+                <div className="flex flex-col gap-6 border-b border-white/10 pb-10 md:flex-row md:items-center md:justify-between">
+                    <div>
+                        <a href="#top" aria-label="goKwickie home">
                             <img
                                 src={logo}
-                                alt="gokwickie"
-                                className="h-8 w-auto"
+                                alt="goKwickie"
+                                width={196}
+                                height={32}
+                                className="h-8 w-auto brightness-0 invert"
                             />
                         </a>
+                        <p className="mt-3 max-w-xs text-sm text-white/60">
+                            Rides, meals and deliveries that keep your day
+                            moving.
+                        </p>
                     </div>
-
-                    {/* Seven columns of links */}
-                    <div className="flex flex-wrap gap-x-10 gap-y-8 lg:flex-1 lg:justify-between">
-                        {footerColumns.map((col) => (
-                            <div key={col.heading}>
-                                <h4 className="font-bold text-white text-sm mb-4">
-                                    {col.heading}
-                                </h4>
-                                <ul className="space-y-2.5 text-sm text-white/90">
-                                    {col.links.map((link) => (
-                                        <li
-                                            key={link}
-                                            className="flex items-center gap-2"
-                                        >
-                                            <span
-                                                className="w-1.5 h-1.5 rounded-full bg-white/70 flex-shrink-0"
-                                                aria-hidden
-                                            />
-                                            <a
-                                                href="#"
-                                                className="hover:text-white transition-colors"
-                                            >
-                                                {link}
-                                            </a>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Bottom section: social (left) + logo (right) */}
-                <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-8 border-t border-white/10">
-                    <div className="flex gap-4">
+                    <div className="flex gap-3">
                         {socialIcons.map(({ Icon, label }) => (
                             <a
                                 key={label}
                                 href="#"
-                                className="w-11 h-11 rounded-full flex items-center justify-center text-white hover:opacity-90 transition-opacity"
-                                style={{ backgroundColor: "#4CAF50" }}
                                 aria-label={label}
+                                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-brand-600"
                             >
-                                <Icon className="w-5 h-5" strokeWidth={2} />
+                                <Icon className="h-[18px] w-[18px]" aria-hidden />
                             </a>
                         ))}
                     </div>
-                    <a href="#" className="flex items-center gap-1.5">
-                        <img
-                            src={logo}
-                            alt="gokwickie"
-                            className="h-7 w-auto brightness-0 invert"
-                        />
-                    </a>
+                </div>
+
+                <div className="grid grid-cols-2 gap-x-6 gap-y-10 py-10 sm:grid-cols-3 lg:grid-cols-7">
+                    {footerColumns.map((col) => (
+                        <div key={col.heading}>
+                            <h3 className="text-sm font-semibold text-white">
+                                {col.heading}
+                            </h3>
+                            <ul className="mt-4 space-y-3 text-sm">
+                                {col.links.map((link) => (
+                                    <li key={link}>
+                                        <a
+                                            href="#"
+                                            className="text-white/60 transition-colors hover:text-white"
+                                        >
+                                            {link}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="border-t border-white/10 pt-8 text-sm text-white/50">
+                    © {new Date().getFullYear()} goKwickie. All rights reserved.
                 </div>
             </div>
         </footer>
