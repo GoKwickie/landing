@@ -6,7 +6,6 @@ const links = [
     { label: "Services", href: "#services" },
     { label: "How it works", href: "#how-it-works" },
     { label: "Earn", href: "#earn" },
-    { label: "News", href: "#news" },
 ];
 
 const Navbar: React.FC = () => {

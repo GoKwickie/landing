@@ -6,7 +6,6 @@ import OurServices from "./sections/OurServices";
 import HowItWorks from "./sections/HowItWorks";
 import EarlyAccess from "./sections/EarlyAccess";
 import Earn from "./sections/Earn";
-import News from "./sections/News";
 import Footer from "./components/Footer";
 import { useReveal } from "./lib/useReveal";
 
@@ -21,7 +20,6 @@ const App: React.FC = () => {
                 <OurServices />
                 <HowItWorks />
                 <Earn />
-                <News />
                 <EarlyAccess />
             </main>
             <Footer />
